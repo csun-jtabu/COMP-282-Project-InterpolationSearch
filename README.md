@@ -25,10 +25,13 @@ Plans:
 
 
 Quick Tracking of Contributions:
+  
   Jaztin:
 - Created/Provided Base Program/Algorithm
 - Customized Program in the direction to the general plan
 - Made Github Page for Project
 
   Gerardo:
+
+
 
