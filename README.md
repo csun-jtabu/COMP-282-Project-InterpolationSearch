@@ -32,6 +32,8 @@ Quick Tracking of Contributions:
 - Made Github Page for Project
 
   Gerardo:
-
+- (Insert Contribution)
+-
+-
 
 
