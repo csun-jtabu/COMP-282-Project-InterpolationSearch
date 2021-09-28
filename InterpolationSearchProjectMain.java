@@ -31,9 +31,10 @@ public class InterpolationSearchProjectMain {
 	            position = low + (((high - low) / (hiChar - loChar)) * (keyChar - loChar));
 	 
 	            // Condition of target found
-	            if (strArray[position].charAt(0) == keyChar)
+	            if (strArray[position].charAt(0) == keyChar){
+					/* I'm testing to make sure my commits go into the branch I created to ensure that the main branch doesn't get confused */
 	                return strArray[position];
-	 
+	 }
 	            // If x is larger, x is in right sub array
 	            if (strArray[position].charAt(0) < keyChar)
 	                return InterpolationSearch(strArray, position + 1, high, key);
