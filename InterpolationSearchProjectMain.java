@@ -10,10 +10,11 @@ Assignment:
 public class InterpolationSearchProjectMain {
 
 	public static void main(String[] args) {
-		String[] testStringArray = {"Becky", "Bob", "Brian", "Daniel", "John", "Kaylee", "Nathaniel", "Ryan", "Wesley", "Zion"};
+		/* String[] testStringArray = {"Becky", "Bob", "Brian", "Daniel", "John", "Kaylee", "Nathaniel", "Ryan", "Wesley", "Zion"};
 		
-		System.out.println(InterpolationSearch(testStringArray, 0, (testStringArray.length - 1), "Kaylee"));
+		System.out.println(InterpolationSearch(testStringArray, 0, (testStringArray.length - 1), "Kaylee")); */
 		//InterpolationSearch(testStringArray, 0, (testStringArray.length - 1), "Brian")
+		Node test = new Node("John", "Smith", "Tuesdays and Thursdays", "2-3pm", "Computer Science");
 
 	}
 	
