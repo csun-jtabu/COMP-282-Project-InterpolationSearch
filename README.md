@@ -30,6 +30,15 @@ Quick Tracking of Contributions:
 - Created/Provided Base Program/Algorithm
 - Customized Program in the direction to the general plan
 - Made Github Page for Project
+- Collected 30 Data samples of Professors 
+first name, last name, days they are available, hours they are available, department
+- Made Interpolation Search method which utilizes interpolation search to find
+the professor based on the first name only.
+- Made file containing the data samples.
+- Adjusted Interpolation Search to fit with Gerardo's arraylist and node methods
+- Made sumArrayWChar method to fit with Interpolation search
+- Made a loop to insert the collected data into data fields and inserted into the Node
+- Debugged Gerardo's NameArrayList Class file to fit with my interpolation search method  
 
   Gerardo:
 - (Insert Contribution)
