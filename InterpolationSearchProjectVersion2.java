@@ -23,6 +23,8 @@ public class InterpolationSearchProjectVersion2 {
       professorList.add(test2);
       professorList.add(test3);
       professorList.add(test4);*/
+      /* One important thing I think is to mention that since it's a list of professors, it's already sorted alphabetically by last name, the only extra work our program has to do is sort by first name and department. */
+     
       NameArrayList professorList = new NameArrayList();
       try
       {
@@ -42,9 +44,15 @@ public class InterpolationSearchProjectVersion2 {
             professorList.add(prof);
          }
       }
-      catch(Exception error)
-      {
+      catch(Exception error) {
+         System.out.println("Error reading in data.");
       }
+      Scanner in = new Scanner(System.in);
+      System.out.println("Select how you would like to search: ");
+      System.out.println("1. By last name");
+      System.out.println("2. By first name");
+      System.out.println("3. By department");
+      
       
       Node[] professorArray = new Node[professorList.size()];
       professorList.toArray(professorArray);

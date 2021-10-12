@@ -33,7 +33,7 @@ Quick Tracking of Contributions:
 
   Gerardo:
 - (Insert Contribution)
--
+- Assisted brainstorming for direction of project. 
 -
 
 

@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class NameArrayList extends ArrayList
+public class NameArrayList extends ArrayList<Node>
 {
     
     private ArrayList<Node> professors;
