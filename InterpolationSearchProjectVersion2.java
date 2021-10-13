@@ -54,15 +54,24 @@ public class InterpolationSearchProjectVersion2 {
       System.out.println("3. By department");
       System.out.print("Select how you would like to search: ");
       int selection = in.nextInt();
+      in.close();
       switch (selection) {
          case 1:
          /* This will be interpolation search by last name */
+            // Scanner input = new Scanner(System.in);
+            String nameToSearch = "Abrego";
+            nameToSearch = userInput();
+            // int test = input.nextInt();
+            // input.close();
+            System.out.print("Enter the Professor's last name: ");
+            
             Node[] professorArray = new Node[professorList.size()];
             professorList.toArray(professorArray);
-            System.out.print("Enter the Professor's last name: ");
-            String nameToSearch = in.nextLine();
+            
+            
             Node chosenNode = interpolationSearchByLastName(professorArray, 0, (professorArray.length - 1), nameToSearch); 
             System.out.println("Professor: " + chosenNode.getFirstName() + " " + chosenNode.getLastName() + "\n Department: " + chosenNode.getDepartment() + "\n Office hours: " + chosenNode.getOfficeHourDays() + " at " + chosenNode.getOfficeHours());
+            // input.close();
             break;
          case 2:
             Node[] professorArray2 = new Node[professorList.size()];
@@ -77,7 +86,12 @@ public class InterpolationSearchProjectVersion2 {
       
       
 	}
-	
+	public static String userInput() {
+      Scanner input = new Scanner(System.in);
+      input.close();
+      return input.next();
+
+   }
 	public static Node interpolationSearch(Node strArray[], int low, int high, String key/*, String OGString*/)
 	{
 		int position = 0;
