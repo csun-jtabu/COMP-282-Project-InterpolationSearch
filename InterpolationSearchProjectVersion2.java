@@ -43,22 +43,38 @@ public class InterpolationSearchProjectVersion2 {
             //System.out.println(department);
             professorList.add(prof);
          }
+         dataInsert.close();
       }
       catch(Exception error) {
          System.out.println("Error reading in data.");
       }
       Scanner in = new Scanner(System.in);
-      System.out.println("Select how you would like to search: ");
       System.out.println("1. By last name");
       System.out.println("2. By first name");
       System.out.println("3. By department");
+      System.out.print("Select how you would like to search: ");
+      int selection = in.nextInt();
+      switch (selection) {
+         case 1:
+         /* This will be interpolation search by last name */
+            Node[] professorArray = new Node[professorList.size()];
+            professorList.toArray(professorArray);
+            System.out.print("Enter the Professor's last name: ");
+            String nameToSearch = in.nextLine();
+            Node chosenNode = interpolationSearchByLastName(professorArray, 0, (professorArray.length - 1), nameToSearch); 
+            System.out.println("Professor: " + chosenNode.getFirstName() + " " + chosenNode.getLastName() + "\n Department: " + chosenNode.getDepartment() + "\n Office hours: " + chosenNode.getOfficeHourDays() + " at " + chosenNode.getOfficeHours());
+            break;
+         case 2:
+            Node[] professorArray2 = new Node[professorList.size()];
+            professorList.toArray(professorArray2);
+      
+            Node chosenNode2 = interpolationSearch(professorArray2, 0, (professorArray2.length - 1), "Bernardo"); //This Interpolation search currently works only with the first name.
+            System.out.println(chosenNode2.getLastName());
+         default:
+            break;
+      }
       
       
-      Node[] professorArray = new Node[professorList.size()];
-      professorList.toArray(professorArray);
-      
-      Node chosenNode = interpolationSearch(professorArray, 0, (professorArray.length - 1), "Bernardo"); //This Interpolation search currently works only with the first name.
-      System.out.println(chosenNode.getLastName());
       
 	}
 	
@@ -100,7 +116,47 @@ public class InterpolationSearchProjectVersion2 {
 		return null;
 		
 	}
-   
+
+   public static Node interpolationSearchByLastName(Node strArray[], int low, int high, String key/*, String OGString*/)
+	{
+		int position = 0;
+		char hiChar = strArray[strArray.length - 1].getLastName().charAt(0);
+		char loChar = strArray[0].getLastName().charAt(0);
+		char keyChar = key.charAt(0);
+		int newHigh = 0;
+      
+      try
+      {
+		if (loChar <= hiChar && keyChar >= loChar && keyChar <= hiChar) {
+			 
+	            // Probing the position with keeping
+	            // uniform distribution in mind.
+	            position = low + (((high - low) / (hiChar - loChar)) * (keyChar - loChar));
+	            newHigh = sumArrayWChar(strArray, key.charAt(0));
+               
+	            // Condition of target found
+	            if (/*strArray[position].charAt(0) == keyChar &&*/ key.equals(strArray[position].getFirstName()))
+	                return strArray[position];
+	 
+	            // If x is larger, x is in right sub array
+	            if (strArray[position].getFirstName().charAt(0) <= keyChar && key.length() > 1)
+	                return interpolationSearchByLastName(strArray, position + 1, position + newHigh, key/*, OGString*/);
+	 
+	            // If x is smaller, x is in left sub array
+	            if (strArray[position].getFirstName().charAt(0) > keyChar && key.length() > 1)
+	                return interpolationSearchByLastName(strArray, low, position - 1, key/*, OGString*/);
+	        }
+      }
+      catch(StackOverflowError error)
+      {
+         return strArray[position];
+         //InterpolationSearch(strArray, position + 1, high, key, OGString);
+      }
+		return null;
+		
+	}
+
+
    public static int sumArrayWChar(Node strArray[], char letter)
    {
       int sum = 0;
