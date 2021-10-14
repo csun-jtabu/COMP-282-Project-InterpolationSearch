@@ -7,6 +7,7 @@ Assignment:
    New tentative perspective of plan: Finding a quicker way to search for CSUN Professors
 */
 //import java.util.ArrayList;
+import java.util.ArrayList;
 import java.util.Scanner; 
 import java.lang.String;
 import java.io.File;
@@ -92,19 +93,23 @@ public class InterpolationSearchProjectVersion2 {
             Node chosenNode2 = interpolationSearch(professorArray2, 0, (professorArray2.length - 1), firstNameToSearch); //This Interpolation search currently works only with the first name.
             System.out.println("Professor: " + chosenNode2.getFirstName() + " " + chosenNode2.getLastName() + "\nDepartment: " + chosenNode2.getDepartment() + "\nOffice hours: " + chosenNode2.getOfficeHourDays() + " at " + chosenNode2.getOfficeHours());
             // System.out.println(chosenNode2.getLastName());
+            break;
          default:
+            System.out.print("Enter the Department to filter: ");
+            String dept = in.next();
+            // Node[] professorArray2 = new Node[professorList.size()];
+            // professorList.toArray(professorArray2);
+            ArrayList<Node> deptArray = QuickSort.filter(professorList, dept);
+            System.out.println(deptArray.get(0).getFirstName()+ " " + deptArray.get(0).getLastName() + "\n" + deptArray.get(0).getDepartment());
+            // Node chosenNode2 = interpolationSearch(professorArray2, 0, (professorArray2.length - 1), firstNameToSearch); //This Interpolation search currently works only with the first name.
+            // System.out.println("Professor: " + chosenNode2.getFirstName() + " " + chosenNode2.getLastName() + "\nDepartment: " + chosenNode2.getDepartment() + "\nOffice hours: " + chosenNode2.getOfficeHourDays() + " at " + chosenNode2.getOfficeHours());
             break;
       }
       
       
       
 	}
-	public static String userInput() {
-      Scanner input = new Scanner(System.in);
-      input.close();
-      return input.next();
 
-   }
 	public static Node interpolationSearch(Node strArray[], int low, int high, String key/*, String OGString*/)
 	{
 		int position = 0;
@@ -159,10 +164,10 @@ public class InterpolationSearchProjectVersion2 {
 	            // Probing the position with keeping
 	            // uniform distribution in mind.
 	            position = low + (((high - low) / (hiChar - loChar)) * (keyChar - loChar));
-	            newHigh = sumArrayWChar(strArray, key.charAt(0));
+	            newHigh = sumArrayWCharForLastNames(strArray, key.charAt(0));
                
 	            // Condition of target found
-	            if (/*strArray[position].charAt(0) == keyChar &&*/ key.equals(strArray[position].getFirstName()))
+	            if (/*strArray[position].charAt(0) == keyChar &&*/ key.equals(strArray[position].getLastName()))
 	                return strArray[position];
 	 
 	            // If x is larger, x is in right sub array
@@ -190,6 +195,19 @@ public class InterpolationSearchProjectVersion2 {
       for(Node node : strArray)
       {
          if(letter == node.getFirstName().charAt(0))
+         {
+            sum++;
+         }
+      }
+      return sum;
+   }
+
+   public static int sumArrayWCharForLastNames(Node strArray[], char letter)
+   {
+      int sum = 0;
+      for(Node node : strArray)
+      {
+         if(letter == node.getLastName().charAt(0))
          {
             sum++;
          }
