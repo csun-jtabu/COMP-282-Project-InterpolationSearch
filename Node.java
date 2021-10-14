@@ -14,6 +14,10 @@ public class Node {
     private String officeHours;
     private String department;
 
+
+    public void printString() {
+        System.out.println("Professor " + this.firstName + " " + this.lastName + "\nOffice hour days: " + this.officeHourDays + "\nOffice hours: " + this.officeHours + "\nDepartment: " + this.department + "\n");
+    }
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     } 

@@ -100,7 +100,13 @@ public class InterpolationSearchProjectVersion2 {
             // Node[] professorArray2 = new Node[professorList.size()];
             // professorList.toArray(professorArray2);
             ArrayList<Node> deptArray = QuickSort.filter(professorList, dept);
-            System.out.println(deptArray.get(0).getFirstName()+ " " + deptArray.get(0).getLastName() + "\n" + deptArray.get(0).getDepartment());
+            // System.out.println(deptArray.get(0).getDepartment());
+            System.out.println("Number of results: " + deptArray.size());
+            for(int x = 0; x<deptArray.size(); x++) {
+               deptArray.get(x).printString();
+            }
+            // System.out.println(deptArray.get(1).getDepartment());
+            // System.out.println(deptArray.get(0).getFirstName()+ " " + deptArray.get(0).getLastName() + "\n" + deptArray.get(0).getDepartment());
             // Node chosenNode2 = interpolationSearch(professorArray2, 0, (professorArray2.length - 1), firstNameToSearch); //This Interpolation search currently works only with the first name.
             // System.out.println("Professor: " + chosenNode2.getFirstName() + " " + chosenNode2.getLastName() + "\nDepartment: " + chosenNode2.getDepartment() + "\nOffice hours: " + chosenNode2.getOfficeHourDays() + " at " + chosenNode2.getOfficeHours());
             break;
