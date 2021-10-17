@@ -82,68 +82,67 @@ public class InterpolationSearchProjectVersion2 {
             for(int x = 0; x<deptArray.size(); x++) {
                deptArray.get(x).printString();
             }
-            // System.out.println(deptArray.get(1).getDepartment());
-            // System.out.println(deptArray.get(0).getFirstName()+ " " + deptArray.get(0).getLastName() + "\n" + deptArray.get(0).getDepartment());
-            // Node chosenNode2 = interpolationSearch(professorArray2, 0, (professorArray2.length - 1), firstNameToSearch); //This Interpolation search currently works only with the first name.
-            // System.out.println("Professor: " + chosenNode2.getFirstName() + " " + chosenNode2.getLastName() + "\nDepartment: " + chosenNode2.getDepartment() + "\nOffice hours: " + chosenNode2.getOfficeHourDays() + " at " + chosenNode2.getOfficeHours());
             break;
       }
       
       
       
 	}
-      public static Node interpolationSearch (Node strArray[], int low, int high, String key) {
-         int position = 0;
-         if (low <= high && key.compareTo(strArray[low].getFirstName()) >= 0 && key.compareTo(strArray[high].getFirstName())<= 0) {
-            
-         }
-      }
+      // public static Node interpolationSearch (Node strArray[], int low, int high, String key) {
+      //    int position = 0;
+         
+      //    if (low <= high && key.compareTo(strArray[low].getFirstName()) >= 0 && key.compareTo(strArray[high].getFirstName())<= 0) {
+      //       position = low + (((high-low)/(strArray[high].getFirstName() - strArray[low].getFirstName())*key-strArray[low].getFirstName()));
+
+      //       /* (((hi - lo) / (arr[hi] - arr[lo]))* (x - arr[lo])); */
+      //    }
+      // }
 
 
-// 	public static Node interpolationSearch(Node strArray[], int low, int high, String key/*, String OGString*/)
-// 	{
-// 		int position = 0;
-// 		char hiChar = strArray[strArray.length - 1].getFirstName().charAt(0);
-// 		char loChar = strArray[0].getFirstName().charAt(0);
-// 		char keyChar = key.charAt(0);
-// 		int newHigh = 0;
+	public static Node interpolationSearch(Node strArray[], int low, int high, String key/*, String OGString*/)
+	{
+		int position = 0;
+		char hiChar = strArray[strArray.length - 1].getFirstName().charAt(0);
+		char loChar = strArray[0].getFirstName().charAt(0);
+		char keyChar = key.charAt(0);
+		int newHigh = 0;
       
-//       try
-//       {
-// 		if (loChar <= hiChar && keyChar >= loChar && keyChar <= hiChar) {
+      try
+      {
+		if (loChar <= hiChar && keyChar >= loChar && keyChar <= hiChar) {
 			 
-// 	            // Probing the position with keeping
-// 	            // uniform distribution in mind.
-// 	            position = low + (((high - low) / (hiChar - loChar)) * (keyChar - loChar));
-// 	            newHigh = sumArrayWChar(strArray, key.charAt(0));
+	            // Probing the position with keeping
+	            // uniform distribution in mind.
+	            position = low + (((high - low) / (hiChar - loChar)) * (keyChar - loChar));
+	            // newHigh = sumArrayWChar(strArray, key.charAt(0));
                
-// 	            // Condition of target found
-// 	            if (/*strArray[position].charAt(0) == keyChar && */key.contains(strArray[position].getFirstName())){
-// 	                return strArray[position];
-// 	 }
-// 	            // If x is larger, x is in right sub array
-// 	            if (strArray[position].getFirstName().charAt(0) <= keyChar && key.length() > 1){
-// 	                return interpolationSearch(strArray, position + 1, position + newHigh, key/*, OGString*/);
-// }	 
-// 	            // If x is smaller, x is in left sub array
-// 	            if (strArray[position].getFirstName().charAt(0) > keyChar && key.length() > 1){
-// 	                return interpolationSearch(strArray, low, position - 1, key/*, OGString*/);
-//                    }
-// 	        }
-//       }
-//       catch(StackOverflowError error)
-//       {
-//          return strArray[position];
-//          //InterpolationSearch(strArray, position + 1, high, key, OGString);
-//       }
-// 		return null;
+	            // Condition of target found
+	            if (/*strArray[position].charAt(0) == keyChar && */strArray[position].getFirstName().equals(key)) {
+	                return strArray[position];
+	 }
+	            // If x is larger, x is in right sub array
+	            if (strArray[position].getFirstName().charAt(0) <= keyChar){
+	                return interpolationSearch(strArray, position + 1, high, key/*, OGString*/);
+}	 
+	            // If x is smaller, x is in left sub array
+	            if (strArray[position].getFirstName().charAt(0) >= keyChar){
+	                return interpolationSearch(strArray, low, position - 1, key/*, OGString*/);
+                   }
+	        }
+      }
+      catch(StackOverflowError error)
+      {
+         return strArray[position];
+         //InterpolationSearch(strArray, position + 1, high, key, OGString);
+      }
+		return null;
 		
-// 	}
+	}
 
    public static Node interpolationSearchByLastName(Node strArray[], int low, int high, String key/*, String OGString*/)
 	{
 		int position = 0;
-		char hiChar = strArray[strArray.length - 1].getLastName().charAt(0);
+		char hiChar = strArray[strArray.length-1].getLastName().charAt(0);
 		char loChar = strArray[0].getLastName().charAt(0);
 		char keyChar = key.charAt(0);
 		int newHigh = 0;
@@ -155,19 +154,24 @@ public class InterpolationSearchProjectVersion2 {
 	            // Probing the position with keeping
 	            // uniform distribution in mind.
 	            position = low + (((high - low) / (hiChar - loChar)) * (keyChar - loChar));
-	            newHigh = sumArrayWCharForLastNames(strArray, key.charAt(0));
+               // position = low + (((high-low)/(strArray[high].getLastName().charAt(0)-strArray[low].getLastName().charAt(0))*(key.charAt(0)-strArray[low].getLastName().charAt(0))));
+	            // newHigh = sumArrayWCharForLastNames(strArray, key.charAt(0));
                
 	            // Condition of target found
-	            if (/*strArray[position].charAt(0) == keyChar &&*/ key.equals(strArray[position].getLastName()))
+	//             if (/*strArray[position].charAt(0) == keyChar &&*/ key.contains(strArray[position].getLastName())){
+	//                 return strArray[position];
+	//  }
+	            if (strArray[position].getLastName().equals(key)){
 	                return strArray[position];
-	 
+	 }
 	            // If x is larger, x is in right sub array
-	            if (strArray[position].getFirstName().charAt(0) <= keyChar && key.length() > 1)
-	                return interpolationSearchByLastName(strArray, position + 1, position + newHigh, key/*, OGString*/);
-	 
+	            if (strArray[position].getLastName().charAt(0) <= keyChar /* && key.length() > 1 */){
+	                return interpolationSearchByLastName(strArray, position + 1, high/* position + newHigh */, key/*, OGString*/);
+	 }
 	            // If x is smaller, x is in left sub array
-	            if (strArray[position].getFirstName().charAt(0) > keyChar && key.length() > 1)
+	            if (strArray[position].getLastName().charAt(0) >= keyChar /* && key.length() > 1 */){
 	                return interpolationSearchByLastName(strArray, low, position - 1, key/*, OGString*/);
+                   }
 	        }
       }
       catch(StackOverflowError error)
