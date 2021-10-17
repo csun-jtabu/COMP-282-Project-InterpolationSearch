@@ -1,6 +1,7 @@
 import java.util.ArrayList;
+import java.util.Comparator;
 
-public class DepartmentFilter {
+public class QuickSort /*implements Comparator<Node>*/{
     /* This class will be for sorting the array by first name */
     /* String tempy = professorList.get(1).getFirstName();
       String tempo = professorList.get(2).getFirstName();
@@ -12,11 +13,15 @@ public class DepartmentFilter {
          
          for(int x = 0; x < input.size(); x++) {
             if(input.get(x).getDepartment().contains(desiredDept)){
-               toReturn.add(input.get(x));
-               
+               toReturn.add(input.get(x));     
             }
          }
-
          return toReturn;
       }
+     
+     /*@Override  
+     public int compare(Node prof1, Node prof2)
+     {
+      return prof1.getFirstName().compareToIgnoreCase(prof2.getFirstName());
+     }*/
 }

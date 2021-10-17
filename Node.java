@@ -48,4 +48,9 @@ public class Node {
     public String getDepartment() {
         return department;
     }
+    
+    @Override
+    public String toString() {
+        return this.firstName + " " + this.lastName + " " + this.department + " ";
+    }
 }

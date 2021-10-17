@@ -9,16 +9,26 @@ Assignment:
 //import java.util.ArrayList;
 import java.util.ArrayList;
 import java.util.Scanner; 
+import java.util.Stack;
 import java.lang.String;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.time.LocalTime;
 
-public class InterpolationSearchProjectVersion2 {
+public class InterpolationSearchProjectVersion3 {
 
 	public static void main(String[] args) {
 
       /* One important thing I think is to mention that since it's a list of professors, it's already sorted alphabetically by last name, the only extra work our program has to do is sort by first name and department. */
      
+      long currentTime; //variables used to calculate time
+      long endTime;
+      long totalTime;
+      /*currentTime = System.currentTimeMillis();
+      endTime = System.currentTimeMillis();
+      totalTime = endTime - currentTime;
+      System.out.println(totalTime);*/
+        
       NameArrayList professorList = new NameArrayList();
       int selection = 0;
       Scanner in = new Scanner(System.in);
@@ -52,14 +62,16 @@ public class InterpolationSearchProjectVersion2 {
          //Scanner in = new Scanner(System.in);
          System.out.println("Search CSUN's Professor Database: ");
          System.out.println(" 1. By last name");
-         System.out.println(" 2. By first name");
+         System.out.println(" 2. By first name (Using Interpolation Search)");
          System.out.println(" 3. By department");
+         System.out.println(" 4. By first name (Using Binary Search)");
+         System.out.println(" 5. Find all professors in a department");
          System.out.println("Select how you would like to search by entering a number: ");
          selection = in.nextInt();
          
          switch (selection) {
          case 1:
-            System.out.println("Enter the Professor's last name: ");
+            System.out.println("Enter the Professor's last name (Place Underscores for Spaces): ");
             String nameToSearch = in.next();
                
             professorList.sort(new LastNameSort());
@@ -71,8 +83,10 @@ public class InterpolationSearchProjectVersion2 {
             break;
             
          case 2:
-            System.out.println("Enter the Professor's first name: ");
+            System.out.println("Enter the Professor's first name (Place Underscores for Spaces): ");
             String firstNameToSearch = in.next();
+            
+            currentTime = System.nanoTime(); //to time program
             
             professorList.sort(new FirstNameSort());
             Node[] professorArray2 = new Node[professorList.size()];
@@ -83,10 +97,66 @@ public class InterpolationSearchProjectVersion2 {
             //System.out.println(professorArray2[14]);
             System.out.println("Professor: " + chosenNode2.getFirstName() + " " + chosenNode2.getLastName() + "\nDepartment: " + chosenNode2.getDepartment() + "\nOffice hours: " + chosenNode2.getOfficeHourDays() + " at " + chosenNode2.getOfficeHours());
             // System.out.println(chosenNode2.getLastName());
+            
+            endTime = System.nanoTime();
+            totalTime = endTime - currentTime;
+            System.out.println("Program Total Time: " + totalTime);
+            
+            break;
+            
+         case 3:
+            Stack<Node> removedStack = new Stack<>();
+            do
+            {
+            System.out.println("Enter the Department the professor is in (Place Underscores for Spaces): ");
+            String DepartmentNameToSearch = in.next();
+            
+            professorList.sort(new DepartmentNameSort());
+            Node[] professorArray3 = new Node[professorList.size()];
+            professorList.toArray(professorArray3);
+            
+            //System.out.println(professorList);
+            Node chosenNode3 = interpolationSearchByDepartment(professorArray3, 0, (professorArray3.length - 1), DepartmentNameToSearch); 
+            //System.out.println(chosenNode3);
+            System.out.println("Professor: " + chosenNode3.getFirstName() + " " + chosenNode3.getLastName() + "\nDepartment: " + chosenNode3.getDepartment() + "\nOffice hours: " + chosenNode3.getOfficeHourDays() + " at " + chosenNode3.getOfficeHours());
+            // System.out.println(chosenNode2.getLastName());
+            professorList.remove(chosenNode3);
+            removedStack.push(chosenNode3);
+            
+            System.out.println("Wrong Professor? Enter 1 to redo the search. Enter any other number to continue.");
+            selection = in.nextInt();
+            }
+            while(selection == 1);
+            while(removedStack.isEmpty() == false)
+            {
+               professorList.add(removedStack.pop());
+            }
+            break;
+            
+          case 4:
+            System.out.println("Enter the Professor's first name (Place Underscores for Spaces): ");
+            String firstNameToSearchBinary = in.next();
+            
+            currentTime = System.nanoTime(); //to time program
+            
+            professorList.sort(new FirstNameSort());
+            Node[] professorArray4 = new Node[professorList.size()];
+            professorList.toArray(professorArray4);
+            
+            //System.out.println(professorList);
+            Node chosenNode4 = binarySearchFirstName(professorArray4, firstNameToSearchBinary); 
+            //System.out.println(professorArray2[14]);
+            System.out.println("Professor: " + chosenNode4.getFirstName() + " " + chosenNode4.getLastName() + "\nDepartment: " + chosenNode4.getDepartment() + "\nOffice hours: " + chosenNode4.getOfficeHourDays() + " at " + chosenNode4.getOfficeHours());
+            // System.out.println(chosenNode2.getLastName());
+            
+            endTime = System.nanoTime();
+            totalTime = endTime - currentTime;
+            System.out.println("Program Total Time: " + totalTime);
+            
             break;
             
          default:
-            System.out.print("Enter the Department to filter: ");
+            System.out.println("Enter the Department to filter (Place Underscores for Spaces): ");
             String dept = in.next();
             // Node[] professorArray2 = new Node[professorList.size()];
             // professorList.toArray(professorArray2);
@@ -138,15 +208,15 @@ public class InterpolationSearchProjectVersion2 {
 	            position = low + (((high - low) / (hiChar - loChar)) * (keyChar - loChar));
                
 	            // Condition of target found
-	            if (/*strArray[position].charAt(0) == keyChar &&*/ key.equals(strArray[position].getFirstName()))
+	            if (strArray[position].getFirstName().contains(key)) {
 	                return strArray[position];
-	 
+	 }
 	            // If x is larger, x is in right sub array
 	            if (strArray[position].getFirstName().charAt(0) <= keyChar /*&& key.length() > 1*/)
 	                return interpolationSearch(strArray, position + 1, high, key/*, OGString*/); 
 	 
 	            // If x is smaller, x is in left sub array
-	            if (strArray[position].getFirstName().charAt(0) > keyChar /*&& key.length() > 1*/)
+	            if (strArray[position].getFirstName().charAt(0) >= keyChar /*&& key.length() > 1*/)
 	                return interpolationSearch(strArray, low, position - 1, key/*, OGString*/);
 	        }
       }
@@ -246,7 +316,7 @@ public class InterpolationSearchProjectVersion2 {
 	}
 
 
-   public static int sumArrayWChar(Node strArray[], char letter)
+   /*public static int sumArrayWChar(Node strArray[], char letter)
    {
       int sum = 0;
       for(Node node : strArray)
@@ -257,9 +327,9 @@ public class InterpolationSearchProjectVersion2 {
          }
       }
       return sum;
-   }
+   }*/
 
-   public static int sumArrayWCharForLastNames(Node strArray[], char letter)
+   /*public static int sumArrayWCharForLastNames(Node strArray[], char letter)
    {
       int sum = 0;
       for(Node node : strArray)
@@ -270,6 +340,40 @@ public class InterpolationSearchProjectVersion2 {
          }
       }
       return sum;
+   }*/
+   
+ /*  public boolean checkTime(Node prof)  Work in progress
+   {
+      String profStartTime = 
+      String profEndTime = 
    }
+ */
+ 
+  public static Node binarySearchFirstName(Node[] profArray, String wantedName)
+    {
+        Node nullNode = new Node(" ", " ", " ", " ", " ");
+        int start = 0; //l 
+        int ending = profArray.length - 1; //r
+        
+        while (start <= ending) {
+            int middle = start + (ending - start) / 2;
+ 
+            int check = wantedName.compareTo(profArray[middle].getFirstName());
+ 
+            // Check if x is present at mid
+            if (check == 0)
+                return profArray[middle];
+ 
+            // If x greater, ignore left half
+            if (check > 0)
+                start = middle + 1;
+ 
+            // If x is smaller, ignore right half
+            else
+                ending = middle - 1;
+        }
+        
+        return nullNode;
+    }
 	
 }
