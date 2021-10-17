@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class QuickSort {
+public class DepartmentFilter {
     /* This class will be for sorting the array by first name */
     /* String tempy = professorList.get(1).getFirstName();
       String tempo = professorList.get(2).getFirstName();
