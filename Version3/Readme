@@ -1,1 +1,21 @@
 Readme
+My Current List of Contributions:
+- Collected 30 Data samples of Professors 
+first name, last name, days they are available, hours they are available, department
+- Made Interpolation Search method which utilizes interpolation search to find
+the professor based on the first name only.
+- Made file containing the data samples.
+- Adjusted Interpolation Search to fit with Gerardo's arraylist and node methods
+- Made sumArrayWChar method to fit with Interpolation search
+- Made a loop to insert the collected data into data fields and inserted into the Node
+- Debugged Gerardo's NameArrayList Class file to fit with my interpolation search method 
+- Debugged InterpolationSearch for Last name 
+- Created the sort classes to sort names by Department, first Name and last name
+- Debugged InterpolationSearch for First Name
+- Debugged ProfessorData (Added Underscores for Spaces)
+- Added a way to widen the interpolation search in case the program miscalculates because of a character
+- Made try/catch statements to address ArrayOutOfBounds error and StackOverflow error
+- Created toString method for Node
+- Created InterpolationSearchByDepartment Method
+- Edited the Menu Options
+- Addressed Menu Option error when entering a string input instead of an int
