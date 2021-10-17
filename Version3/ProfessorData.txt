@@ -1,0 +1,30 @@
+Abrego,Bernardo,MoTuWeTh,1100-1205pm,Mathematics
+Bagwell,Jack_L.,MoWe,400-645pm,Educational_Leadership_&_Policy Studies
+Cadavid,Ana_Cristina,MoWe,1230-145pm,Physics_&_Astronomy
+Dabbour,Katherine,MoTuWeThFr,745-1045pm,Librarian
+Ebin,Vicki_J.,None,00-00pm,Health_Sciences
+Fahmie,Tara,None,00-00pm,Psychology
+Gainsburg,Julie,None,00-00pm,Secondary_Education
+Hsu,Wen_Chin,Tu,700-945pm,Computer_Science
+Hughes,Tyler,MoWe,1230-145pm,Political_Science
+Icardo_Isasa,Ane,Mo,1200-115pm,Modern_&_Classical_Languages_&_Literatures
+Jaber,Hatem_M.,We,130-415pm,Physical_Therapy
+Kachingwe,Aimie,Mo,1200-140pm,Faculty-HHD_Stu_Serv_Ctr
+Lagana,Luciana,We,400-645pm,Psychology
+Ma,Debbie,None,00-00pm,Psychology
+Naccashian,Zarmine,None,00-00pm,Nursing
+OSullivan,Donal_B.,Mo,400-645pm,History
+Paez,Jose_M.,Tu,700-945pm,Social Work
+Quilici,Jill,Tu,1100-1215pm,Psychology
+Rachmanov,Dmitry,None,00-00pm,Music
+Sabty,Rania_A.,Mo,400-645pm,Environmental_and_Occupational_Health
+Tabibzadeh,Maryam,We,700-945pm,Manufacturing_Systems_Engineering_&_Management
+Ulupinar,Dogukan,None,00-00pm,Educational_Psychology_&_Counseling
+Vakilian,Ramin,None,00-00pm,Mathematics
+Wai,Diane,None,00-00pm,Marketing_and_Communications
+Xie,Hui,Th,930-1215pm,Recreation_and_Tourism_Management
+Yagisawa,Takashi,MoWe,200-340pm,Philosophy
+Zaman,Muhammad_S.,None,00-00pm,IT_Infrastruc_Svcs_Dirs
+Zappia,Natale,MoWe,1100-1215pm,History
+Zartoshty,Bahram,TuTh,200-315pm,Computer_Science
+Zavala,Maria_E.,Fr,1030-115pm,Biology
