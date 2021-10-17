@@ -16,15 +16,7 @@ import java.io.FileNotFoundException;
 public class InterpolationSearchProjectVersion2 {
 
 	public static void main(String[] args) {
-		
-      /*Node test = new Node("John", "Smith", "Tuesdays and Thursdays", "2-3pm", "Computer Science");
-      Node test2 = new Node("Kaylee", "Smith", "Tuesdays and Thursdays", "2-3pm", "Computer Science");
-      Node test3 = new Node("Krass", "Smith", "Tuesdays and Thursdays", "2-3pm", "Computer Science");
-      Node test4 = new Node("Zion", "Smith", "Tuesdays and Thursdays", "2-3pm", "Computer Science");
-      professorList.add(test);
-      professorList.add(test2);
-      professorList.add(test3);
-      professorList.add(test4);*/
+
       /* One important thing I think is to mention that since it's a list of professors, it's already sorted alphabetically by last name, the only extra work our program has to do is sort by first name and department. */
      
       NameArrayList professorList = new NameArrayList();
@@ -57,21 +49,6 @@ public class InterpolationSearchProjectVersion2 {
       System.out.print("Select how you would like to search: ");
       int selection = in.nextInt();
 
-      // if(selection == 1) {
-      //    /* This will be interpolation search by last name */
-      //       // String nameToSearch = "Abrego";
-
-      //       System.out.print("Enter the Professor's last name: ");
-      //       String nameToSearch = in.next();
-            
-      //       Node[] professorArray = new Node[professorList.size()];
-      //       professorList.toArray(professorArray);
-            
-            
-      //       Node chosenNode = interpolationSearchByLastName(professorArray, 0, (professorArray.length - 1), nameToSearch); 
-      //       System.out.println("Professor: " + chosenNode.getFirstName() + " " + chosenNode.getLastName() + "\n Department: " + chosenNode.getDepartment() + "\n Office hours: " + chosenNode.getOfficeHourDays() + " at " + chosenNode.getOfficeHours());
-      //       // input.close();
-      // }
       switch (selection) {
          case 1:
             System.out.print("Enter the Professor's last name: ");
@@ -90,7 +67,7 @@ public class InterpolationSearchProjectVersion2 {
             Node[] professorArray2 = new Node[professorList.size()];
             professorList.toArray(professorArray2);
       
-            Node chosenNode2 = interpolationSearch(professorArray2, 0, (professorArray2.length - 1), firstNameToSearch); //This Interpolation search currently works only with the first name.
+            Node chosenNode2 = interpolationSearch(professorArray2, 0, (professorArray2.length - 1), firstNameToSearch); 
             System.out.println("Professor: " + chosenNode2.getFirstName() + " " + chosenNode2.getLastName() + "\nDepartment: " + chosenNode2.getDepartment() + "\nOffice hours: " + chosenNode2.getOfficeHourDays() + " at " + chosenNode2.getOfficeHours());
             // System.out.println(chosenNode2.getLastName());
             break;

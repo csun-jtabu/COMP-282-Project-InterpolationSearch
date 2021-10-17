@@ -9,18 +9,14 @@ public class QuickSort {
       } */
       public static ArrayList<Node> filter(ArrayList<Node> input, String desiredDept) {
          ArrayList<Node> toReturn = new ArrayList<Node>();
-         // toReturn.add(input.get(1));
-         // toReturn.add(input.get(2));
-         // if(input.get(0).getDepartment() == desiredDept){
-         //    toReturn.add(input.get(0));
-         // }
+         
          for(int x = 0; x < input.size(); x++) {
             if(input.get(x).getDepartment().contains(desiredDept)){
                toReturn.add(input.get(x));
-               // System.out.println("-----" + toReturn.get(x).getDepartment());
+               
             }
          }
-         // return input.get(0).getDepartment();
+
          return toReturn;
       }
 }
