@@ -32,8 +32,8 @@ Quick Tracking of Contributions:
 - Made Github Page for Project
 
   Gerardo:
-- (Insert Contribution)
 - Assisted brainstorming for direction of project. 
--
+- Stored incremental progress of program to Github
+- Assisted with troubleshooting interpolation algorithm not returning the proper results. Cleaned up program for submittal and refined department search.
 
 

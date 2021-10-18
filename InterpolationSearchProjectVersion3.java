@@ -111,26 +111,63 @@ public class InterpolationSearchProjectVersion3 {
             System.out.println("Enter the Department the professor is in (Place Underscores for Spaces): ");
             String DepartmentNameToSearch = in.next();
             
-            professorList.sort(new DepartmentNameSort());
-            Node[] professorArray3 = new Node[professorList.size()];
-            professorList.toArray(professorArray3);
+            // professorList.sort(new DepartmentNameSort());
+            // Node[] professorArray3 = new Node[professorList.size()];
+            ArrayList<Node> deptArrayList = QuickSort.filter(professorList, DepartmentNameToSearch);
+            Node[] professorArray3 = new Node[deptArrayList.size()];
+            deptArrayList.toArray(professorArray3);
             
             //System.out.println(professorList);
-            Node chosenNode3 = interpolationSearchByDepartment(professorArray3, 0, (professorArray3.length - 1), DepartmentNameToSearch); 
+            // THIS ONE - Node chosenNode3 = interpolationSearchByDepartment(professorArray3, 0, (professorArray3.length - 1), DepartmentNameToSearch); 
             //System.out.println(chosenNode3);
-            System.out.println("Professor: " + chosenNode3.getFirstName() + " " + chosenNode3.getLastName() + "\nDepartment: " + chosenNode3.getDepartment() + "\nOffice hours: " + chosenNode3.getOfficeHourDays() + " at " + chosenNode3.getOfficeHours());
+            // THIS ONE System.out.println("Professor: " + chosenNode3.getFirstName() + " " + chosenNode3.getLastName() + "\nDepartment: " + chosenNode3.getDepartment() + "\nOffice hours: " + chosenNode3.getOfficeHourDays() + " at " + chosenNode3.getOfficeHours());
             // System.out.println(chosenNode2.getLastName());
-            professorList.remove(chosenNode3);
-            removedStack.push(chosenNode3);
-            
-            System.out.println("Wrong Professor? Enter 1 to redo the search. Enter any other number to continue.");
-            selection = in.nextInt();
+            // THIS ONE professorList.remove(chosenNode3);
+            // THIS ONE removedStack.push(chosenNode3);
+            // System.out.println("Number of results: " + deptArrayList.size());
+            // for(int x = 0; x<deptArrayList.size(); x++) {
+            //    deptArrayList.get(x).printString();
+            // }
+            if(deptArrayList.size() > 1) {
+               System.out.print("Would you like to search by first or last name within the department?\n 1. First Name\n 2. Last name\n 3. Exit: ");
+               selection = in.nextInt();
+               if(selection == 1) {
+                  System.out.println("Enter the Professor's first name (Place Underscores for Spaces): ");
+                  firstNameToSearch = in.next();
+                  
+                  professorList.sort(new FirstNameSort());
+                  professorArray2 = new Node[professorList.size()];
+                  professorList.toArray(professorArray2);
+                  
+                  //System.out.println(professorList);
+                  chosenNode2 = interpolationSearch(professorArray2, 0, (professorArray2.length - 1), firstNameToSearch); 
+                  System.out.println("Professor: " + chosenNode2.getFirstName() + " " + chosenNode2.getLastName() + "\nDepartment: " + chosenNode2.getDepartment() + "\nOffice hours: " + chosenNode2.getOfficeHourDays() + " at " + chosenNode2.getOfficeHours());
+                  break;
+               } else if(selection == 2) {
+                     System.out.println("Enter the Professor's last name (Place Underscores for Spaces): ");
+                     nameToSearch = in.next();
+                        
+                     professorList.sort(new LastNameSort());
+                     professorArray = new Node[professorList.size()];
+                     professorList.toArray(professorArray);
+                     //System.out.println(professorList);
+                     chosenNode = interpolationSearchByLastName(professorArray, 0, (professorArray.length - 1), nameToSearch); 
+                     System.out.println("\nProfessor: " + chosenNode.getFirstName() + " " + chosenNode.getLastName() + "\nDepartment: " + chosenNode.getDepartment() + "\nOffice hours: " + chosenNode.getOfficeHourDays() + " at " + chosenNode.getOfficeHours());
+                     break;
+               } else {
+                  break;
+               }
+
+            }
+            /* GOOD THROUGH JUST BEFORE BREAK; */
+            // System.out.println("Wrong Professor? Enter 1 to redo the search. Enter any other number to continue.");
+            // selection = in.nextInt();
             }
             while(selection == 1);
-            while(removedStack.isEmpty() == false)
-            {
-               professorList.add(removedStack.pop());
-            }
+            // while(removedStack.isEmpty() == false)
+            // {
+            //    professorList.add(removedStack.pop());
+            // }
             break;
             
           case 4:
@@ -169,7 +206,7 @@ public class InterpolationSearchProjectVersion3 {
             // System.out.println(deptArray.get(1).getDepartment());
             // System.out.println(deptArray.get(0).getFirstName()+ " " + deptArray.get(0).getLastName() + "\n" + deptArray.get(0).getDepartment());
             // Node chosenNode2 = interpolationSearch(professorArray2, 0, (professorArray2.length - 1), firstNameToSearch); //This Interpolation search currently works only with the first name.
-            // System.out.println("Professor: " + chosenNode2.getFirstName() + " " + chosenNode2.getLastName() + "\nDepartment: " + chosenNode2.getDepartment() + "\nOffice hours: " + chosenNode2.getOfficeHourDays() + " at " + chosenNode2.getOfficeHours());
+            // System.out.println("Professor: " + chosenNode2.getFirstName() + " " + chosenNode2.getLastName() + "\nDepartment: " + chosenNode2.getDepartment()
             break;
       }
       
