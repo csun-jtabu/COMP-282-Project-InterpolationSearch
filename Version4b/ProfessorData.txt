@@ -1,0 +1,30 @@
+Abrego,Bernardo,MoTuWeTh,1100-1205pm,Mathematics
+Bagwell,Jack L.,MoWe,400-645pm,Educational Leadership & Policy Studies
+Cadavid,Ana Cristina,MoWe,1230-145pm,Physics & Astronomy
+Dabbour,Katherine,MoTuWeThFr,745-1045pm,Librarian
+Ebin,Vicki J.,None,00-00pm,Health Sciences
+Fahmie,Tara,None,00-00pm,Psychology
+Gainsburg,Julie,None,00-00pm,Secondary Education
+Hsu,Wen Chin,Tu,700-945pm,Computer Science
+Hughes,Tyler,MoWe,1230-145pm,Political Science
+Icardo Isasa,Ane,Mo,1200-115pm,Modern & Classical Languages & Literatures
+Jaber,Hatem M.,We,130-415pm,Physical Therapy
+Kachingwe,Aimie,Mo,1200-140pm,Faculty - HHD Stu Serv Ctr
+Lagana,Luciana,We,400-645pm,Psychology
+Ma,Debbie,None,00-00pm,Psychology
+Naccashian,Zarmine,None,00-00pm,Nursing
+OSullivan,Donal B.,Mo,400-645pm,History
+Paez,Jose M.,Tu,700-945pm,Social Work
+Quilici,Jill,Tu,1100-1215pm,Psychology
+Rachmanov,Dmitry,None,00-00pm,Music
+Sabty,Rania A.,Mo,400-645pm,Environmental and Occupational Health
+Tabibzadeh,Maryam,We,700-945pm,Manufacturing Systems Engineering & Management
+Ulupinar,Dogukan,None,00-00pm,Educational Psychology & Counseling
+Vakilian,Ramin,None,00-00pm,Mathematics
+Wai,Diane,None,00-00pm,Marketing and Communications
+Xie,Hui,Th,930-1215pm,Recreation and Tourism Management
+Yagisawa,Takashi,MoWe,200-340pm,Philosophy
+Zaman,Muhammad S.,None,00-00pm,IT Infrastruc Svcs Dirs
+Zappia,Natale,MoWe,1100-1215pm,History
+Zartoshty,Bahram,TuTh,200-315pm,Computer Science
+Zavala,Maria E.,Fr,1030-115pm,Biology
